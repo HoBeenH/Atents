@@ -24,6 +24,7 @@ public class MoveDir : MonoBehaviour
         
         // Vector3 = 3차원 자표값 ( X,Y,Z )
         // Time.deltatime = 1초를 프레임으로 나눔 = step * deltatime 은 프레임당 이동스피드
+        // 방향 * 매프레임당 * 이동스피드
         Vector3 _newPosition = transform.position;
         _newPosition.y = _newPosition.y + dir * Time.deltaTime * step;
         transform.position = _newPosition;
