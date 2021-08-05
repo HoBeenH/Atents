@@ -21,7 +21,6 @@ public class MoveDir : MonoBehaviour
             // 지면에 닿으면 1
             dir = 1f;
         }
-        
         // Vector3 = 3차원 자표값 ( X,Y,Z )
         // Time.deltatime = 1초를 프레임으로 나눔 = step * deltatime 은 프레임당 이동스피드
         // 방향 * 매프레임당 * 이동스피드
