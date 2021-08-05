@@ -1,42 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class Temp : MonoBehaviour
 {
-    public float speed = 10f;
-    private Rigidbody playerRigidbody;
+    Sequence mySequence;
 
     void Start()
     {
-        playerRigidbody = GetComponent<Rigidbody>();
-    }
+        mySequence = DOTween.Sequence()
+        .OnStart(() =>
+        {
+            transform.localScale = Vector3.zero;
+            GetComponent<CanvasGroup>().alpha = 0;
+        })
+        .Append(transform.DOScale(1, 1).SetEase(Ease.OutBounce))
+        .Append(transform.DOShakePosition(4,2f))
+        .Join(GetComponent<CanvasGroup>().DOFade(1, 1))
+        .SetDelay(0.5f);
 
-    void Update()
-    {
-        float moveX = Input.GetAxis("Horizontal");
-
-        float moveZ = Input.GetAxis("Vertical");
-
-        float jump = Input.GetAxis("Jump");
-
-        //float fall = jump;
-
-        //Vector3 Cube = transform.position;
-        //Cube.x = Cube.x + moveX * Time.deltaTime * speed;
-        //Cube.y = Cube.y + jump * Time.deltaTime * speed;
-        //Cube.z = Cube.z + moveZ * Time.deltaTime * speed;
-
-        //transform.position = Cube;
-
-        Vector3 velocity = playerRigidbody.velocity;
-        velocity.x = velocity.x + moveX * speed;
-        velocity.y = velocity.y + jump * speed;
-        velocity.z = velocity.z + moveZ * speed;
-        playerRigidbody.velocity = velocity;
-        
-
-
-
+        mySequence.SetLoops(-1, LoopType.Restart).SetDelay(1.5f);
     }
 }

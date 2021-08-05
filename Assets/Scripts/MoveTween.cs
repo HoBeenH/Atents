@@ -17,6 +17,7 @@ public class MoveTween : MonoBehaviour
         oldPosition = this.transform.localPosition;
         old_easyType = Ease.Unset;
         easyType = Ease.Unset;
+        
     }
 
     void Update()
@@ -27,10 +28,10 @@ public class MoveTween : MonoBehaviour
             transform.localPosition = oldPosition;
 
             transform.DOKill();
-
             if (easyType != Ease.Unset)
             {
-                transform.DOLocalMoveX(right, time).SetLoops(-1, LoopType.Yoyo).SetEase(easyType);
+                
+                transform.DOLocalMoveX(right, time).SetLoops(-1, LoopType.Incremental).SetEase(easyType);
             }
         }
     }

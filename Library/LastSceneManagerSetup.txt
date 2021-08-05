@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/SampleScenes/Scenes/RollerBall.unity
+- path: Assets/Scenes/SceneMoveTween.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
