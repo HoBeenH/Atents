@@ -7,16 +7,15 @@ public class DeltaTimer : MonoBehaviour
     float a = 0f;
     float b = 0f;
     public int temp = 20;
+    public float ftest = 100;
 
     float Countera()
-    {
-        // ÇÁ·¹ÀÓ´ç +=1
+    {        
         return a += 1.0f;
     }
 
     float Counterb()
-    {
-        // ÃÊ´ç +=1
+    {        
         return b += 1.0f * Time.deltaTime;
     }
 
